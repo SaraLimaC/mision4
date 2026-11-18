@@ -1,111 +1,160 @@
 :root {
-  --text: #6b6375;
-  --text-h: #08060d;
-  --bg: #fff;
-  --border: #e5e4e7;
-  --code-bg: #f4f3ec;
-  --accent: #aa3bff;
-  --accent-bg: rgba(170, 59, 255, 0.1);
-  --accent-border: rgba(170, 59, 255, 0.5);
-  --social-bg: rgba(244, 243, 236, 0.5);
-  --shadow:
-    rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
-
-  --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
-  --heading: system-ui, 'Segoe UI', Roboto, sans-serif;
-  --mono: ui-monospace, Consolas, monospace;
-
-  font: 18px/145% var(--sans);
-  letter-spacing: 0.18px;
+  --fondo: #f4f5f8;
+  --tarjeta: #ffffff;
+  --texto: #1d2433;
+  --suave: #5b6478;
+  --borde: #c9cedb;
+  --acento: #2f4bd6;
+  --acento-hover: #243bb0;
+  --error: #b3261e;
+  --error-fondo: #fdecea;
+  --ok: #1b6e3c;
+  --ok-fondo: #e6f4ea;
   color-scheme: light dark;
-  color: var(--text);
-  background: var(--bg);
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-
-  @media (max-width: 1024px) {
-    font-size: 16px;
-  }
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --text: #9ca3af;
-    --text-h: #f3f4f6;
-    --bg: #16171d;
-    --border: #2e303a;
-    --code-bg: #1f2028;
-    --accent: #c084fc;
-    --accent-bg: rgba(192, 132, 252, 0.15);
-    --accent-border: rgba(192, 132, 252, 0.5);
-    --social-bg: rgba(47, 48, 58, 0.5);
-    --shadow:
-      rgba(0, 0, 0, 0.4) 0 10px 15px -3px, rgba(0, 0, 0, 0.25) 0 4px 6px -2px;
-  }
-
-  #social .button-icon {
-    filter: invert(1) brightness(2);
+    --fondo: #14171f;
+    --tarjeta: #1d222d;
+    --texto: #eef0f5;
+    --suave: #a3abbd;
+    --borde: #3a4153;
+    --acento: #8ea2ff;
+    --acento-hover: #aab8ff;
+    --error: #ff8a80;
+    --error-fondo: #3a1f1d;
+    --ok: #7fd69c;
+    --ok-fondo: #1b3226;
   }
 }
+
+* { box-sizing: border-box; }
 
 body {
   margin: 0;
+  padding: 2rem 1rem;
+  background: var(--fondo);
+  color: var(--texto);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  line-height: 1.5;
 }
 
-#root {
-  width: 1126px;
-  max-width: 100%;
+/* Tu App.jsx puede envolver todo en <main>; si no, el body ya centra con max-width */
+#root, main {
+  max-width: 640px;
   margin: 0 auto;
-  text-align: center;
-  border-inline: 1px solid var(--border);
-  min-height: 100svh;
+  display: grid;
+  gap: 2rem;
+}
+
+h1, h2 { margin: 0 0 .25rem; line-height: 1.2; }
+h1 { font-size: 1.9rem; }
+h2 { font-size: 1.3rem; }
+
+/* ---------- Formulario ---------- */
+form {
+  display: grid;
+  gap: .35rem;
+  padding: 1.75rem;
+  background: var(--tarjeta);
+  border: 1px solid var(--borde);
+  border-radius: 10px;
+}
+
+label { font-weight: 600; margin-top: .75rem; }
+
+input[type="text"],
+input[type="email"],
+input[type="number"],
+input[type="password"],
+select,
+textarea {
+  width: 100%;
+  padding: .65rem .75rem;
+  font: inherit;
+  color: inherit;
+  background: var(--fondo);
+  border: 1.5px solid var(--borde);
+  border-radius: 6px;
+}
+
+/* El estado inválido sale de aria-invalid: lo que ve el ojo = lo que lee el lector */
+input[aria-invalid="true"],
+select[aria-invalid="true"],
+fieldset[aria-invalid="true"] {
+  border-color: var(--error);
+}
+
+/* Foco SIEMPRE visible (se prueba con el teclado) */
+:focus-visible {
+  outline: 3px solid var(--acento);
+  outline-offset: 2px;
+}
+
+fieldset {
+  margin: .75rem 0 0;
+  padding: .6rem .9rem .8rem;
+  border: 1.5px solid var(--borde);
+  border-radius: 6px;
+}
+legend { font-weight: 600; padding: 0 .35rem; }
+
+/* Checkboxes: etiqueta e input en línea */
+label:has(input[type="checkbox"]) {
   display: flex;
-  flex-direction: column;
-  box-sizing: border-box;
+  align-items: center;
+  gap: .5rem;
+  font-weight: 400;
+  margin-top: .5rem;
 }
+input[type="checkbox"] { width: 1.1rem; height: 1.1rem; accent-color: var(--acento); }
 
-h1,
-h2 {
-  font-family: var(--heading);
-  font-weight: 500;
-  color: var(--text-h);
+/* ---------- Mensajes ---------- */
+.error, .ok {
+  margin: .2rem 0 0;
+  padding: .4rem .65rem;
+  font-size: .9rem;
+  border-radius: 6px;
 }
+.error { color: var(--error); background: var(--error-fondo); }
+.ok    { color: var(--ok);    background: var(--ok-fondo); }
 
-h1 {
-  font-size: 56px;
-  letter-spacing: -1.68px;
-  margin: 32px 0;
-  @media (max-width: 1024px) {
-    font-size: 36px;
-    margin: 20px 0;
-  }
+/* Cargando / lista vacía / error del listado */
+.estado { color: var(--suave); font-style: italic; }
+
+/* ---------- Botón ---------- */
+button {
+  margin-top: 1.25rem;
+  padding: .75rem 1rem;
+  font: inherit;
+  font-weight: 700;
+  color: #fff;
+  background: var(--acento);
+  border: 0;
+  border-radius: 6px;
+  cursor: pointer;
 }
-h2 {
-  font-size: 24px;
-  line-height: 118%;
-  letter-spacing: -0.24px;
-  margin: 0 0 8px;
-  @media (max-width: 1024px) {
-    font-size: 20px;
-  }
-}
-p {
+@media (prefers-color-scheme: dark) { button { color: #10131a; } }
+button:hover:not(:disabled) { background: var(--acento-hover); }
+button:disabled { opacity: .6; cursor: progress; }
+
+/* ---------- Listado ---------- */
+ul {
+  list-style: none;
   margin: 0;
+  padding: 0;
+  display: grid;
+  gap: .6rem;
 }
-
-code,
-.counter {
-  font-family: var(--mono);
-  display: inline-flex;
-  border-radius: 4px;
-  color: var(--text-h);
+li {
+  padding: .8rem 1rem;
+  background: var(--tarjeta);
+  border: 1px solid var(--borde);
+  border-radius: 8px;
 }
+li small { display: block; color: var(--suave); }
 
-code {
-  font-size: 15px;
-  line-height: 135%;
-  padding: 4px 8px;
-  background: var(--code-bg);
+@media (prefers-reduced-motion: no-preference) {
+  button, input, select { transition: background .15s, border-color .15s; }
 }
