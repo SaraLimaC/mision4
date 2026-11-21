@@ -1,11 +1,10 @@
 
-import Formulario from './componentes/Formulario.jsx'
-import './App.css'
+import Formulario from './componentes/Formulario.jsx';
 
 function App() {
   return (
     <>
-      <Formulario />
+      <Formulario/>
       
     </>
   )
