@@ -19,7 +19,7 @@ export const esquemaSuscripcion = z.object({
 
     generos:z.array(z.enum(GENEROS)).min(1,"Elige al menos 1 de los géneros disponibles"),
 
-    plan:z.enum(PLANES).min(1,"Elige un plan de suscripción"),
+    plan:z.enum(PLANES),
 
     direccion: z.string().trim().max(150,"La dirección es muy larga"),
 

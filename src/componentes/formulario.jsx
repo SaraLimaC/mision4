@@ -59,7 +59,7 @@ function Formulario() {
 
         <label htmlFor="email">
         Email
-        <input id="email" type="email" type="email" autoComplete="email" {...register("email")} {...a11y("email")}/>
+        <input id="email" type="email" autoComplete="email" {...register("email")} {...a11y("email")}/>
         </label>
         {mensaje("email")}
         

@@ -6,8 +6,14 @@
       "alias": "NeonLynx",
       "email": "lucia.ferrer@ejemplo.com",
       "edad": 24,
-      "plataformas": ["PC", "PlayStation"],
-      "generos": ["RPG", "Aventura"],
+      "plataformas": [
+        "PC",
+        "PlayStation"
+      ],
+      "generos": [
+        "RPG",
+        "Aventura"
+      ],
       "plan": "digital",
       "direccion": "",
       "aceptaTerminos": true,
@@ -19,8 +25,15 @@
       "alias": "Kernel_Panic",
       "email": "marcos.ibanez@ejemplo.com",
       "edad": 31,
-      "plataformas": ["PC", "Switch"],
-      "generos": ["Estrategia", "Simulación", "Indie"],
+      "plataformas": [
+        "PC",
+        "Switch"
+      ],
+      "generos": [
+        "Estrategia",
+        "Simulación",
+        "Indie"
+      ],
       "plan": "mixto",
       "direccion": "Calle Alcalá 120, Madrid",
       "aceptaTerminos": true,
@@ -32,8 +45,13 @@
       "alias": "Chrome_Fox",
       "email": "noa.salvador@ejemplo.com",
       "edad": 22,
-      "plataformas": ["Xbox"],
-      "generos": ["Acción", "Deportes"],
+      "plataformas": [
+        "Xbox"
+      ],
+      "generos": [
+        "Acción",
+        "Deportes"
+      ],
       "plan": "papel",
       "direccion": "Avenida del Mar 8, Valencia",
       "aceptaTerminos": true,
@@ -45,12 +63,19 @@
       "alias": "Ghost404",
       "email": "dani.roca@ejemplo.com",
       "edad": 27,
-      "plataformas": ["PlayStation", "PC", "Switch"],
-      "generos": ["Terror"],
+      "plataformas": [
+        "PlayStation",
+        "PC",
+        "Switch"
+      ],
+      "generos": [
+        "Terror"
+      ],
       "plan": "digital",
       "direccion": "",
       "aceptaTerminos": true,
       "fechaAlta": "2026-11-12T21:30:00.000Z"
     }
-  ]
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
 }

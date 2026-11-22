@@ -1,16 +1,29 @@
-# React + Vite
+Misión M4 · Formularios y peticiones HTTP — Web Development I.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Cómo probarlo
+Ejecuta en dos terminales diferentes los siguientes comandos:
+*   npx json-server db.json, en la primera
+*   npm run dev en la segunda terminal
 
-Currently, two official plugins are available:
+Para abrirlo simplemente se pulsa en el enlace de la segunda terminal. Se trata de una web de suscripción a una revista de videojuegos, con varios campos, como el nombre y opciones de plataformas, generos o tipo de suscripción.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+Si se introducen datos incorrectos se de un aviso, al tratarse de un tipo formulario que es validado por Zod
 
-## React Compiler
+## Uso de IA
+Usé Claude para crear un css que fuera estilo neon y me devolvío el código css que usé en index
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Ejemplo de prompt: realiza un diseño de estilo ciberpunk para un formulario.
 
-## Expanding the ESLint configuration
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Alguno prompts usados:
+ -  Como añadir el modo oscuro en javascript
+ -  Como puedo cambiar el color de un texto con botones para cada color
+ -  Como puedo añadir una cuenta atras para ver el número de palabras que puedo escribir cambiando color y tamaño
+
+    
+## Autopsia
+
+1. Cuando comparaba las palabras o frases había un cierto orden , tenía que darle primero a los botones y luego escribir para que validará si eran iguales, entonces cree una función checkear() que se llamaba cada vez que tocabas un botón y así el orden no importa y puedes escribir y cambiar con los botones o viceversa.
+
+
+2. A la hora de comparar las palabras o frases no se realizaba una comparación justa entre colores y tamaños por lo que cambié el formato de declaración de los colores de "red" a rgb(255,0,0), con los tamañon hice los mismo y usé la unidad px.
