@@ -1,5 +1,5 @@
 
-import Formulario from './componentes/formulario.jsx';
+import Formulario from './componentes/Formulario.jsx';
 import Lista from "./componentes/lista.jsx";
 
 function App() {
