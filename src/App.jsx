@@ -1,5 +1,5 @@
 
-import Formulario from './componentes/Formulario.jsx';
+import Formulario from "./componentes/Formulario.jsx";
 import Lista from "./componentes/lista.jsx";
 
 function App() {
@@ -23,7 +23,6 @@ function App() {
       </section>
     </main>
   );
-}
 }
 
 export default App
