@@ -76,6 +76,5 @@
       "aceptaTerminos": true,
       "fechaAlta": "2026-11-12T21:30:00.000Z"
     }
-  ],
-  "$schema": "./node_modules/json-server/schema.json"
+  ]
 }
