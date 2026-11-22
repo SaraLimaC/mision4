@@ -1,7 +1,6 @@
 import {esquemaSuscriptores} from "../esquemas/suscripcion.js";
 
-const API_URL = "http://localhost:3000";
-
+const API_URL = import.meta.env.VITE_API_URL;
 const RUTA_SUSCRIPTORES = `${API_URL}/suscriptores`;
 
 //POST

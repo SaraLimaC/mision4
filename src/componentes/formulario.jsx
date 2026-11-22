@@ -23,6 +23,9 @@ function Formulario() {
         }
     });
 
+    function onSubmit(datos) {
+        mutacion.mutate({ ...datos, fechaAlta: new Date().toISOString() });
+    }
     function onError(errs){
         setFocus(Object.keys(errs)[0])
 
@@ -105,18 +108,6 @@ function Formulario() {
         </label>
         <input id="direccion" type="text" autoComplete="street-address"{...a11y("direccion")} {...register("direccion")}></input>
 
-        <label htmlFor="password">
-            Contraseña
-        <input id="password"type="password" autoComplete="new-password" {...a11y("direccion")} {...register("password")} />
-        </label>
-        {errors.password && <p className="error">{errors.password.message}</p>}
-
-        <label>
-            Repetir contraseña
-        <input id="repetir" type="password" autoComplete="new-password" {...a11y("direccion")} {...register("password")} />
-        </label>
-        {errors.repetir && <p className="error">{errors.repetir.message}</p>}
-        
         <label>
             Acepto los términos
         <input type="checkbox" {...a11y("aceptaTerminos")} {...register("aceptaTerminos")} />
