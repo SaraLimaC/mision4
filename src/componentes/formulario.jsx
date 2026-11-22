@@ -75,7 +75,7 @@ function Formulario() {
             ))}    
             </div>
         </fieldset>
-        
+    
 
         <fieldset {...accesibilidad("generos")}>
             <legend>Géneros favoritos</legend>
