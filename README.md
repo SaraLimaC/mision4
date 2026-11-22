@@ -2,7 +2,8 @@ Misión M4 · Formularios y peticiones HTTP — Web Development I.
 
 ## Cómo probarlo
 Ejecuta en dos terminales diferentes los siguientes comandos:
-*   npx json-server db.json --port 3000, en la primera
+*   npx json-server db.json --port 3000, en la primera, para ejecutar la base de datos corrupta cambia db.corrupto.json
+
 *   npm run dev en la segunda terminal
 
 Para abrirlo simplemente se pulsa en el enlace de la segunda terminal. Se trata de una web de suscripción a una revista de videojuegos, con varios campos, como el nombre y opciones de plataformas, generos o tipo de suscripción.
