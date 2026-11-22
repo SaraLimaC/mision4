@@ -13,7 +13,15 @@ function Formulario() {
         reset,
         setFocus, // para poner el foco en un input
         formState: { errors, isSubmitting },
-    } = useForm({resolver: zodResolver(esquemaSuscripcion)});
+    } = useForm({resolver: zodResolver(esquemaSuscripcion),
+        defaultValues: {
+            plataformas: [],
+            generos: [],
+            plan: "",
+            aceptaTerminos: false,
+            direccion: "",
+        },
+    });
     
     const mutacion = useMutation({
         mutationFn: crearSuscripcion,
@@ -75,7 +83,7 @@ function Formulario() {
             ))}    
             </div>
         </fieldset>
-    
+        {mensaje("plataformas")}
 
         <fieldset {...accesibilidad("generos")}>
             <legend>Géneros favoritos</legend>
@@ -87,7 +95,7 @@ function Formulario() {
             ))}    
             </div>
         </fieldset>
-        
+        {mensaje("generos")}
 
         <fieldset {...accesibilidad("plan")}>
             <legend>Plan de suscripción</legend>
@@ -100,6 +108,7 @@ function Formulario() {
                 ))}
             </div>
         </fieldset>
+        {mensaje("plan")}
 
         <label htmlFor="direccion">
             Dirección de envío (obligatoria según el plan escogido)
