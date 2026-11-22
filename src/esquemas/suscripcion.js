@@ -19,15 +19,17 @@ export const esquemaSuscripcion = z.object({
 
     generos:z.array(z.enum(GENEROS)).min(1,"Elige al menos 1 de los géneros disponibles"),
 
-    plan:z.enum(PLANES),
+    plan: z.string().min(1, "Elige un plan de suscripción"),
 
     direccion: z.string().trim().max(150,"La dirección es muy larga"),
 
-    aceptaTerminos: z.literal(true, { error: "Debes aceptar los términos"}),
+    aceptaTerminos: z.boolean().refine((v) => v === true, "Debes aceptar los términos"),
 })
 
-.refine((datos) => datos.plan === "digital" || datos.direccion.length >=8, { error: "La dirección es obligatoria", path: ["direccion"], // error en el campo dirección
-});
+.refine(
+    (datos) => !["papel", "mixto"].includes(datos.plan) || datos.direccion.length >= 8,
+    { error: "La dirección es obligatoria para papel o mixto", path: ["direccion"] }
+);
 
 //esquema de la respuesta API , el bonus
 export const esquemaSuscriptor = z.object({

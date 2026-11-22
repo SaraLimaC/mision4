@@ -6,6 +6,7 @@ function Lista() {
     const {data, isPending,isError, error} = useQuery({
         queryKey:["suscriptores"],
         queryFn: obtenerSuscriptores,
+        retry: false
     });
     if(isPending){
         return <p className="estado" role="status"> Cargando jugadores </p>
