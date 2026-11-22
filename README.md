@@ -19,7 +19,7 @@ Usé Claude también para el bonus de la misión de safeParse de la API y atrapa
 
 Ejemplo de prompt: necesito usar funciones de accesibilidad que devuelvan aria-invalid,aria-describedby.
 
-Usé ChatGPT para ayudarme con a usar json-server paso a paso y para montar los archivos de .env y el ejemplo del mismo y no subir el original a github usando gitignore.
+Usé ChatGPT para ayudarme con a usar json-server paso a paso y para montar los archivos de .env y el ejemplo del mismo y no subir el original a github usando gitignore. También para arreglar un error con los mensajes de plataforma, generos y plan, porque no conseguía que aparecieran y tuve que inicializar los campos para solucionarlo.
 
 Ejemplo de prompt: ayúdame a usar el json-server paso a paso y meterle info.
     
