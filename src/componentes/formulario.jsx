@@ -75,7 +75,7 @@ function Formulario() {
             ))}    
             </div>
         </fieldset>
-        {mensaje("plataformas")}
+        
 
         <fieldset {...accesibilidad("generos")}>
             <legend>Géneros favoritos</legend>
@@ -87,7 +87,7 @@ function Formulario() {
             ))}    
             </div>
         </fieldset>
-        {mensaje("generos")}
+        
 
         <fieldset {...accesibilidad("plan")}>
             <legend>Plan de suscripción</legend>
@@ -100,7 +100,6 @@ function Formulario() {
                 ))}
             </div>
         </fieldset>
-        {mensaje("plan")}
 
         <label htmlFor="direccion">
             Dirección de envío (obligatoria según el plan escogido)
