@@ -30,7 +30,7 @@ function Formulario() {
         setFocus(Object.keys(errs)[0])
 
     }
-    const a11y = (campo)=>({
+    const accesibilidad = (campo)=>({
         "aria-invalid": !!errors[campo],
         "aria-describedby":errors[campo] ? `error-${campo}`:undefined,
     });
@@ -49,23 +49,23 @@ function Formulario() {
         <form onSubmit={handleSubmit(onSubmit, onError)} noValidate>
         <label htmlFor="nombre">
             Nombre
-            <input id="nombre" type="text" autoComplete="name" {...a11y("nombre")} {...register("nombre")} />
+            <input id="nombre" type="text" autoComplete="name" {...accesibilidad("nombre")} {...register("nombre")} />
         </label>
         {mensaje("nombre")}
 
         <label htmlFor="alias">Alias de jugador</label>
-        <input id="alias" type="text" autoComplete="nickname" placeholder="Ej: NeonLynx_77" {...a11y("alias")} {...register("alias")}/>
+        <input id="alias" type="text" autoComplete="nickname" placeholder="Ej: NeonLynx_77" {...accesibilidad("alias")} {...register("alias")}/>
         {mensaje("alias")}
 
         <label htmlFor="email">
         Email
-        <input id="email" type="email" autoComplete="email" {...register("email")} {...a11y("email")}/>
+        <input id="email" type="email" autoComplete="email" {...register("email")} {...accesibilidad("email")}/>
         </label>
         {mensaje("email")}
         
         <label htmlFor="edad">
         Edad
-        <input id="edad" type="number" {...a11y("email")}{...register("edad")}/> 
+        <input id="edad" type="number" {...accesibilidad("email")}{...register("edad")}/> 
         </label>
         {mensaje("edad")}
 
@@ -106,11 +106,11 @@ function Formulario() {
         <label htmlFor="direccion">
         Dirección de envío (obligatoria según el plan escogido)
         </label>
-        <input id="direccion" type="text" autoComplete="street-address"{...a11y("direccion")} {...register("direccion")}></input>
+        <input id="direccion" type="text" autoComplete="street-address"{...accesibilidad("direccion")} {...register("direccion")}></input>
 
         <label>
             Acepto los términos
-        <input type="checkbox" {...a11y("aceptaTerminos")} {...register("aceptaTerminos")} />
+        <input type="checkbox" {...accesibilidad("aceptaTerminos")} {...register("aceptaTerminos")} />
         </label>
         {errors.aceptaTerminos && (
         <p className="error">{errors.aceptaTerminos.message}</p>
