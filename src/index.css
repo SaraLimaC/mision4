@@ -1,160 +1,212 @@
+/* Sustituye TODO el contenido de src/index.css */
 :root {
-  --fondo: #f4f5f8;
-  --tarjeta: #ffffff;
-  --texto: #1d2433;
-  --suave: #5b6478;
-  --borde: #c9cedb;
-  --acento: #2f4bd6;
-  --acento-hover: #243bb0;
-  --error: #b3261e;
-  --error-fondo: #fdecea;
-  --ok: #1b6e3c;
-  --ok-fondo: #e6f4ea;
-  color-scheme: light dark;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --fondo: #14171f;
-    --tarjeta: #1d222d;
-    --texto: #eef0f5;
-    --suave: #a3abbd;
-    --borde: #3a4153;
-    --acento: #8ea2ff;
-    --acento-hover: #aab8ff;
-    --error: #ff8a80;
-    --error-fondo: #3a1f1d;
-    --ok: #7fd69c;
-    --ok-fondo: #1b3226;
-  }
+  --fondo: #0a0a12;
+  --panel: #12121f;
+  --campo: #0b0b16;
+  --texto: #e8f7ff;
+  --suave: #8f9bb8;
+  --borde: #2a2f4a;
+  --cian: #00f0ff;
+  --magenta: #ff2bd6;
+  --amarillo: #fcee0a;
+  --error: #ff6b86;
+  --error-fondo: #2a0f1a;
+  --ok: #39ff88;
+  --ok-fondo: #0d2a1a;
+  color-scheme: dark;
 }
 
 * { box-sizing: border-box; }
 
 body {
   margin: 0;
-  padding: 2rem 1rem;
-  background: var(--fondo);
+  padding: 2rem 1rem 4rem;
   color: var(--texto);
   font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
   line-height: 1.5;
+  /* rejilla neón + resplandor morado arriba */
+  background:
+    linear-gradient(rgba(0, 240, 255, .05) 1px, transparent 1px) 0 0 / 40px 40px,
+    linear-gradient(90deg, rgba(0, 240, 255, .05) 1px, transparent 1px) 0 0 / 40px 40px,
+    radial-gradient(ellipse at top, #24104a 0%, var(--fondo) 65%);
+  background-attachment: fixed;
+  background-color: var(--fondo);
 }
 
-/* Tu App.jsx puede envolver todo en <main>; si no, el body ya centra con max-width */
-#root, main {
-  max-width: 640px;
-  margin: 0 auto;
-  display: grid;
-  gap: 2rem;
+#root, main { max-width: 680px; margin: 0 auto; }
+main { display: grid; gap: 2.5rem; }
+
+/* ---------- Títulos ---------- */
+h1, h2, legend, button {
+  font-family: "Orbitron", "Segoe UI", system-ui, sans-serif;
 }
 
-h1, h2 { margin: 0 0 .25rem; line-height: 1.2; }
-h1 { font-size: 1.9rem; }
-h2 { font-size: 1.3rem; }
+h1 {
+  margin: 0;
+  font-size: clamp(2rem, 7vw, 3.2rem);
+  line-height: 1;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  text-shadow: 3px 0 var(--magenta), -3px 0 var(--cian);
+}
+h1 span { color: var(--amarillo); }
+header p { margin: .75rem 0 0; color: var(--suave); }
 
-/* ---------- Formulario ---------- */
+h2 {
+  margin: 0 0 1rem;
+  font-size: 1.1rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--cian);
+}
+h2::before { content: "// "; color: var(--magenta); }
+
+/* ---------- Tarjetas ---------- */
+form, li {
+  background: var(--panel);
+  border: 1px solid var(--borde);
+  border-left: 4px solid var(--cian);
+  border-radius: 4px;
+  box-shadow: 0 0 28px rgba(0, 240, 255, .08);
+}
+
 form {
   display: grid;
   gap: .35rem;
   padding: 1.75rem;
-  background: var(--tarjeta);
-  border: 1px solid var(--borde);
-  border-radius: 10px;
 }
 
-label { font-weight: 600; margin-top: .75rem; }
+/* ---------- Campos ---------- */
+label {
+  margin-top: .85rem;
+  font-size: .8rem;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--cian);
+}
 
 input[type="text"],
 input[type="email"],
 input[type="number"],
-input[type="password"],
-select,
-textarea {
+select {
   width: 100%;
-  padding: .65rem .75rem;
+  padding: .7rem .8rem;
   font: inherit;
-  color: inherit;
-  background: var(--fondo);
+  color: var(--texto);
+  background: var(--campo);
   border: 1.5px solid var(--borde);
-  border-radius: 6px;
+  border-radius: 3px;
 }
+input::placeholder { color: var(--suave); opacity: .8; }
 
-/* El estado inválido sale de aria-invalid: lo que ve el ojo = lo que lee el lector */
+/* Inválido: sale de aria-invalid (lo que ve el ojo = lo que oye el lector) */
 input[aria-invalid="true"],
 select[aria-invalid="true"],
-fieldset[aria-invalid="true"] {
+fieldset:has(.error) {
   border-color: var(--error);
 }
 
-/* Foco SIEMPRE visible (se prueba con el teclado) */
+/* Foco SIEMPRE visible */
 :focus-visible {
-  outline: 3px solid var(--acento);
+  outline: 3px solid var(--amarillo);
   outline-offset: 2px;
 }
 
 fieldset {
-  margin: .75rem 0 0;
-  padding: .6rem .9rem .8rem;
+  margin: .85rem 0 0;
+  padding: .6rem 1rem .9rem;
   border: 1.5px solid var(--borde);
-  border-radius: 6px;
+  border-radius: 3px;
 }
-legend { font-weight: 600; padding: 0 .35rem; }
+legend {
+  padding: 0 .4rem;
+  font-size: .8rem;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--cian);
+}
 
-/* Checkboxes: etiqueta e input en línea */
-label:has(input[type="checkbox"]) {
+.opciones { display: flex; flex-wrap: wrap; gap: .25rem 1.5rem; }
+
+/* Checkbox y radio: etiqueta en línea, texto normal */
+label:has(input[type="checkbox"]),
+label:has(input[type="radio"]) {
   display: flex;
   align-items: center;
-  gap: .5rem;
-  font-weight: 400;
+  gap: .55rem;
   margin-top: .5rem;
+  font-size: 1rem;
+  font-weight: 400;
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--texto);
 }
-input[type="checkbox"] { width: 1.1rem; height: 1.1rem; accent-color: var(--acento); }
+input[type="checkbox"],
+input[type="radio"] {
+  width: 1.15rem;
+  height: 1.15rem;
+  accent-color: var(--magenta);
+}
 
 /* ---------- Mensajes ---------- */
 .error, .ok {
   margin: .2rem 0 0;
-  padding: .4rem .65rem;
+  padding: .45rem .7rem;
   font-size: .9rem;
-  border-radius: 6px;
+  border-radius: 3px;
 }
-.error { color: var(--error); background: var(--error-fondo); }
-.ok    { color: var(--ok);    background: var(--ok-fondo); }
-
-/* Cargando / lista vacía / error del listado */
+.error { color: var(--error); background: var(--error-fondo); border-left: 3px solid var(--error); }
+.ok    { color: var(--ok);    background: var(--ok-fondo);    border-left: 3px solid var(--ok); }
 .estado { color: var(--suave); font-style: italic; }
 
 /* ---------- Botón ---------- */
 button {
-  margin-top: 1.25rem;
-  padding: .75rem 1rem;
-  font: inherit;
+  margin-top: 1.5rem;
+  padding: .9rem 1rem;
+  font-size: .95rem;
   font-weight: 700;
-  color: #fff;
-  background: var(--acento);
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: #05050a;
+  background: var(--cian);
   border: 0;
-  border-radius: 6px;
+  border-radius: 3px;
+  box-shadow: 0 0 18px rgba(0, 240, 255, .45);
   cursor: pointer;
 }
-@media (prefers-color-scheme: dark) { button { color: #10131a; } }
-button:hover:not(:disabled) { background: var(--acento-hover); }
-button:disabled { opacity: .6; cursor: progress; }
+button:hover:not(:disabled) {
+  background: var(--magenta);
+  box-shadow: 0 0 22px rgba(255, 43, 214, .55);
+}
+button:disabled { opacity: .55; cursor: progress; box-shadow: none; }
 
 /* ---------- Listado ---------- */
-ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: grid;
-  gap: .6rem;
-}
+ul { list-style: none; margin: 0; padding: 0; display: grid; gap: .7rem; }
+
 li {
-  padding: .8rem 1rem;
-  background: var(--tarjeta);
-  border: 1px solid var(--borde);
-  border-radius: 8px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: .35rem .85rem;
+  padding: .85rem 1.1rem;
+  border-left-color: var(--magenta);
 }
-li small { display: block; color: var(--suave); }
+li strong { color: var(--cian); letter-spacing: .04em; }
+li small { flex-basis: 100%; color: var(--suave); }
+
+.etiqueta {
+  padding: .1rem .55rem;
+  font-size: .72rem;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--amarillo);
+  border: 1px solid var(--amarillo);
+  border-radius: 2px;
+}
 
 @media (prefers-reduced-motion: no-preference) {
-  button, input, select { transition: background .15s, border-color .15s; }
+  button, input, select { transition: background .15s, border-color .15s, box-shadow .15s; }
 }
