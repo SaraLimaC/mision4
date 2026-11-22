@@ -19,7 +19,7 @@ export const esquemaSuscripcion = z.object({
 
     generos:z.array(z.enum(GENEROS)).min(1,"Elige al menos 1 de los géneros disponibles"),
 
-    plan: z.string().min(1, "Elige un plan de suscripción"),
+    plan: z.string().min(1, "Elige un plan de suscripción").refine((v) => v === "" || PLANES.includes(v), "Plan no válido"), //no uso enum porque sino el refine de dirección se puede saltar
 
     direccion: z.string().trim().max(150,"La dirección es muy larga"),
 

@@ -46,7 +46,7 @@ function Formulario() {
     ) : null;
 
     return (
-        <form onSubmit={handleSubmit(onSubmit, onError)} noValidate>
+        <form onChange={() => mutacion.reset()}onSubmit={handleSubmit(onSubmit, onError)} noValidate>
         <label htmlFor="nombre">
             Nombre
             <input id="nombre" type="text" autoComplete="name" {...accesibilidad("nombre")} {...register("nombre")} />
@@ -65,7 +65,7 @@ function Formulario() {
         
         <label htmlFor="edad">
         Edad
-        <input id="edad" type="number" {...accesibilidad("email")}{...register("edad")}/> 
+        <input id="edad" type="number" {...accesibilidad("edad")}{...register("edad")}/> 
         </label>
         {mensaje("edad")}
 
@@ -104,7 +104,7 @@ function Formulario() {
         </fieldset>
 
         <label htmlFor="direccion">
-        Dirección de envío (obligatoria según el plan escogido)
+            Dirección de envío (obligatoria según el plan escogido)
         </label>
         <input id="direccion" type="text" autoComplete="street-address"{...accesibilidad("direccion")} {...register("direccion")}></input>
 
@@ -112,9 +112,8 @@ function Formulario() {
             Acepto los términos
         <input type="checkbox" {...accesibilidad("aceptaTerminos")} {...register("aceptaTerminos")} />
         </label>
-        {errors.aceptaTerminos && (
-        <p className="error">{errors.aceptaTerminos.message}</p>
-        )}
+        {mensaje("aceptarTerminos")}
+    
 
         <button disabled={isSubmitting || mutacion.isPending}>
             {mutacion.isPending ? "Conectando…" : "Suscribirme"}
