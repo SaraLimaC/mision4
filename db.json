@@ -1,0 +1,56 @@
+{
+  "suscriptores": [
+    {
+      "id": "1",
+      "nombre": "Lucía Ferrer",
+      "alias": "NeonLynx",
+      "email": "lucia.ferrer@ejemplo.com",
+      "edad": 24,
+      "plataformas": ["PC", "PlayStation"],
+      "generos": ["RPG", "Aventura"],
+      "plan": "digital",
+      "direccion": "",
+      "aceptaTerminos": true,
+      "fechaAlta": "2026-11-02T10:15:00.000Z"
+    },
+    {
+      "id": "2",
+      "nombre": "Marcos Ibáñez",
+      "alias": "Kernel_Panic",
+      "email": "marcos.ibanez@ejemplo.com",
+      "edad": 31,
+      "plataformas": ["PC", "Switch"],
+      "generos": ["Estrategia", "Simulación", "Indie"],
+      "plan": "mixto",
+      "direccion": "Calle Alcalá 120, Madrid",
+      "aceptaTerminos": true,
+      "fechaAlta": "2026-11-05T18:40:00.000Z"
+    },
+    {
+      "id": "3",
+      "nombre": "Noa Salvador",
+      "alias": "Chrome_Fox",
+      "email": "noa.salvador@ejemplo.com",
+      "edad": 22,
+      "plataformas": ["Xbox"],
+      "generos": ["Acción", "Deportes"],
+      "plan": "papel",
+      "direccion": "Avenida del Mar 8, Valencia",
+      "aceptaTerminos": true,
+      "fechaAlta": "2026-11-09T09:05:00.000Z"
+    },
+    {
+      "id": "4",
+      "nombre": "Dani Roca",
+      "alias": "Ghost404",
+      "email": "dani.roca@ejemplo.com",
+      "edad": 27,
+      "plataformas": ["PlayStation", "PC", "Switch"],
+      "generos": ["Terror"],
+      "plan": "digital",
+      "direccion": "",
+      "aceptaTerminos": true,
+      "fechaAlta": "2026-11-12T21:30:00.000Z"
+    }
+  ]
+}
