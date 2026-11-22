@@ -25,8 +25,7 @@ function Lista() {
                     <strong>{s.alias}</strong>
                     <span>{s.plan}</span>
                     <small>
-                        {s.plataformas.join(" . ")}.{s.generos.join(", ")}.desde{" "}
-                        {new Date(s.fechaAlta).toLocaleDateString("es-ES")}
+                        {s.plataformas.join(", ")} | {s.generos.join(", ")} | Desde{" "}                        {new Date(s.fechaAlta).toLocaleDateString("es-ES")}
                     </small>
                 </li>
             ))}

@@ -9,7 +9,7 @@ export const PLANES =["digital", "papel","mixto"];
 export const esquemaSuscripcion = z.object({
     nombre: z.string().trim().min(2, "El nombre es demasiado corto").max(50,"El nombre es demasiado largo"),
 
-    alias: z.string().trim().min(3,"El alias debe ser mayor de 3 caracteres").max(20,"El alias debe ser menor de 20 caracteres"),
+    alias: z.string().trim().min(3,"El alias debe tener al menos 3 caracteres").max(20,"El alias debe ser menor de 20 caracteres"),
 
     email: z.email("Email no válido"),
 

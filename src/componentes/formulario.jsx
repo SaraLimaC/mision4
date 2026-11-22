@@ -35,10 +35,6 @@ function Formulario() {
         "aria-describedby":errors[campo] ? `error-${campo}`:undefined,
     });
 
-    const descrito = (campo)=>({
-        "aria-describedby": errors[campo] ? `error-${campo}` : undefined,
-    });
-
     const mensaje = (campo) => errors[campo] ? (
       <p id={`error-${campo}`} role="alert" className="error">
         {errors[campo].message}
@@ -58,18 +54,18 @@ function Formulario() {
         {mensaje("alias")}
 
         <label htmlFor="email">
-        Email
+            Email
         <input id="email" type="email" autoComplete="email" {...register("email")} {...accesibilidad("email")}/>
         </label>
         {mensaje("email")}
         
         <label htmlFor="edad">
-        Edad
+            Edad
         <input id="edad" type="number" {...accesibilidad("edad")}{...register("edad")}/> 
         </label>
         {mensaje("edad")}
 
-        <fieldset {...descrito("plataformas")}>
+        <fieldset {...accesibilidad("plataformas")}>
             <legend>Plataformas</legend>
             <div className="opciones">{PLATAFORMAS.map((p) => (
               <label key={p}>
@@ -80,7 +76,7 @@ function Formulario() {
             </div>
         </fieldset>
 
-        <fieldset {...descrito("generos")}>
+        <fieldset {...accesibilidad("generos")}>
             <legend>Géneros favoritos</legend>
             <div className="opciones">{GENEROS.map((g) => (
               <label key={g}>
@@ -91,7 +87,7 @@ function Formulario() {
             </div>
         </fieldset>
 
-        <fieldset {...descrito("plan")}>
+        <fieldset {...accesibilidad("plan")}>
             <legend>Plan de suscripción</legend>
             <div className="opciones">
                 {PLANES.map((p)=>(
@@ -107,12 +103,13 @@ function Formulario() {
             Dirección de envío (obligatoria según el plan escogido)
         </label>
         <input id="direccion" type="text" autoComplete="street-address"{...accesibilidad("direccion")} {...register("direccion")}></input>
+        {mensaje("direccion")}
 
-        <label>
+        <label htmlFor="aceptaTerminos">
             Acepto los términos
         <input type="checkbox" {...accesibilidad("aceptaTerminos")} {...register("aceptaTerminos")} />
         </label>
-        {mensaje("aceptarTerminos")}
+        {mensaje("aceptaTerminos")}
     
 
         <button disabled={isSubmitting || mutacion.isPending}>

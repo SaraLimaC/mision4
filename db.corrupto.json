@@ -1,0 +1,41 @@
+{
+  "suscriptores": [
+    {
+      "id": "1",
+      "nombre": "Lucía Ferrer",
+      "alias": "NeonLynx",
+      "email": "lucia.ferrer@ejemplo.com",
+      "edad": 24,
+      "plataformas": [
+        "PC",
+        "PlayStation"
+      ],
+      "generos": [
+        "RPG",
+        "Aventura"
+      ],
+      "plan": "digital",
+      "direccion": "",
+      "aceptaTerminos": true,
+      "fechaAlta": "2026-11-02T10:15:00.000Z"
+    },
+    {
+      "id": "2",
+      "nombre": "Marcos Ibáñez",
+      "alias": "Kernel_Panic",
+      "email": "marcos.ibanez@ejemplo.com",
+      "edad": "veintitres",
+      "plataformas": [
+        "PC",
+        "Switch"
+      ],
+      "generos": [
+        "Estrategia"
+      ],
+      "plan": "mixto",
+      "direccion": "Calle Alcalá 120, Madrid",
+      "aceptaTerminos": true,
+      "fechaAlta": "2026-11-05T18:40:00.000Z"
+    }
+  ]
+}
